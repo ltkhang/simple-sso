@@ -1,5 +1,7 @@
 # simple-sso
 
+Blog post: https://medium.com/@khangluong1998/simple-single-sign-on-sso-system-with-nodejs-089fc33e8f43
+
 # Desciption
 
 This is a project for demonstrating a very simple SSO server with OpenId mechanism. This project is inspired by Slack Authentication which my company is applying for controlling authentication function.
