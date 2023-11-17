@@ -11,6 +11,7 @@ app.get('/', async (req, res) => {
     method: 'post',
     body: JSON.stringify({
       clientId: "d362abf68a3057425bc7a9c6fca3b944f005015e2f04237d1a930c94001994b0",
+      clientSecret: "04474438403710f658940d2cf20db1916762fd0d98e8f57ad7df60474c45a34f",
       code
     }),
     headers: {

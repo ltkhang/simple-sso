@@ -110,12 +110,16 @@ app.get('/openid', async (req, res) => {
 });
 
 app.post('/verify', async (req, res) => {
-  const { clientId, code } = req.body;
+  const { clientId, clientSecret, code } = req.body;
   const orgData = db.queryByClientId({ clientId });
   if (_.isNil(orgData)) {
     return res.status(400).json({ error: 'Organization bound to clientId not found' });
   }
-  const { clientSecret } = orgData;
+  const { clientSecret: dbClientSecret } = orgData;
+  if (!_.isEqual(clientSecret, dbClientSecret)) {
+    return res.status(403).json({ error: 'Unauthorized' });
+  }
+
   try {
     const { userSecret } = jwt.verify(code, clientSecret);
     const token = jwt.sign({
